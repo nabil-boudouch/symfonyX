@@ -1,0 +1,29 @@
+{# src/Sdz/BlogBundle/Resources/views/Blog/voir.html.twig #}
+ 
+{% extends "SdzBlogBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Lecture d'un article - {{ parent() }}
+{% endblock %}
+ 
+{% block sdzblog_body %}
+ 
+  {# Ici, on inclut la vue #}
+  {% include "SdzBlogBundle:Blog:article.html.twig" %}
+ 
+  <p>
+    <a href="{{ path('sdzblog_accueil') }}" class="btn">
+      <i class="icon-chevron-left"></i>
+      Retour à la liste
+    </a>
+    <a href="{{ path('sdzblog_modifier', {'id': article.id}) }}" class="btn">
+      <i class="icon-edit"></i>
+      Modifier l'article
+    </a>
+    <a href="{{ path('sdzblog_supprimer', {'id': article.id}) }}" class="btn">
+      <i class="icon-trash"></i>
+      Supprimer l'article
+    </a>
+  </p>
+ 
+{% endblock %}
